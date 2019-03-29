@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ProductTable from "./components/views/ProductTable";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 class App extends Component {
   constructor(props){
@@ -18,7 +19,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ProductTable products={this.state.products}/>
+          <BrowserRouter>
+              <Switch>
+                  <Route exact path="/" render={() => <ProductTable products={this.state.products}/>}/>
+                  {/*<Route exact path="/cart" component={Cart}/>*/}
+              </Switch>
+          </BrowserRouter>
       </div>
     );
   }
