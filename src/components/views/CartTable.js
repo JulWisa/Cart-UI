@@ -3,10 +3,9 @@ import TableHead from "../../../node_modules/@material-ui/core/TableHead/TableHe
 import TableRow from "../../../node_modules/@material-ui/core/TableRow/TableRow";
 import TableCell from "../../../node_modules/@material-ui/core/TableCell/TableCell";
 import TableBody from "../../../node_modules/@material-ui/core/TableBody/TableBody";
-import Button from "../../../node_modules/@material-ui/core/Button/Button";
-import RemoveIcon from "../../../node_modules/@material-ui/icons/Remove";
 import Table from "../../../node_modules/@material-ui/core/Table/Table";
 import Typography from "../../../node_modules/@material-ui/core/Typography/Typography";
+import CartRow from "./CartRow";
 
 class CartTable extends React.Component {
     constructor(props) {
@@ -17,10 +16,7 @@ class CartTable extends React.Component {
     }
 
     getTableBody(products) {
-        let total = products.reduce((sum, product) => {
-            console.log(product.price, sum);
-            return sum + product.price
-        }, 0);
+        let total = products.reduce((sum, product) => sum + product.price * product.count, 0);
         return (
             <TableBody>
                 {this.fillTable(products)}
@@ -35,21 +31,7 @@ class CartTable extends React.Component {
 
     fillTable(products) {
         if (products.length > 0)
-            return products.map(product =>
-                <TableRow key={product.id}>
-                    <TableCell>{product.name}</TableCell>
-                    <TableCell>{product.price}</TableCell>
-                    <TableCell>{product.count}</TableCell>
-                    <TableCell>
-                        <Button>
-                            <RemoveIcon/>
-                        </Button>
-                    </TableCell>
-                    <TableCell>
-                        <Button>Удалить все</Button>
-                    </TableCell>
-                </TableRow>);
-
+            return products.map(product => <CartRow product={product} key={product.id}/>);
         return (
             <TableRow>
                 <TableCell id="emptyCart" colSpan={5}>

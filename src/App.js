@@ -47,7 +47,6 @@ class App extends Component {
         }
         product.count = 1;
         cart.push(product);
-        console.log(cart);
         return cart;
     }
 
