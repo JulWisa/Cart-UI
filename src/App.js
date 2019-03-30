@@ -21,6 +21,12 @@ class App extends Component {
                 {id: 4, name: "Лимон", price: 52, count: 33}
             ]
         };
+
+        this.onClearCart = this.onClearCart.bind(this);
+    }
+
+    onClearCart(){
+        this.setState({cart: []});
     }
 
     render() {
@@ -30,7 +36,12 @@ class App extends Component {
                     <Layout>
                         <Switch>
                             <Route exact path="/" render={() => <Products products={this.state.products}/>}/>
-                            <Route exact path="/cart" render={() => <Cart cart={this.state.cart}/>}/>
+                            <Route exact path="/cart"
+                                   render={() =>
+                                       <Cart cart={this.state.cart}
+                                             onClearCart={this.onClearCart}/>
+                                   }
+                            />
                         </Switch>
                     </Layout>
                 </BrowserRouter>

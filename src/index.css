@@ -7,3 +7,13 @@
 #cartButton, #productsBtn{
   margin: 5px;
 }
+
+#emptyCart{
+  text-align: center;
+}
+
+#headline{
+  padding-top: 5px;
+  padding-left: 15px;
+  text-align: center;
+}

@@ -7,9 +7,40 @@ import Button from "../../../node_modules/@material-ui/core/Button/Button";
 import RemoveIcon from "../../../node_modules/@material-ui/icons/Remove";
 import Table from "../../../node_modules/@material-ui/core/Table/Table";
 
-class CartTable extends React.Component{
-    render(){
-        return(
+class CartTable extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.fillTable = this.fillTable.bind(this);
+    }
+
+    fillTable(products) {
+        if (products.length > 0)
+            return products.map(product =>
+                <TableRow key={product.id}>
+                    <TableCell>{product.name}</TableCell>
+                    <TableCell>{product.price}</TableCell>
+                    <TableCell>{product.count}</TableCell>
+                    <TableCell>
+                        <Button>
+                            <RemoveIcon/>
+                        </Button>
+                    </TableCell>
+                    <TableCell>
+                        <Button>Удалить все</Button>
+                    </TableCell>
+                </TableRow>);
+
+        return (
+            <TableRow>
+                <TableCell id="emptyCart" colSpan={5}>
+                    Корзина пуста
+                </TableCell>
+            </TableRow>);
+    }
+
+    render() {
+        return (
             <Table>
                 <TableHead>
                     <TableRow>
@@ -21,21 +52,7 @@ class CartTable extends React.Component{
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {this.props.cart.map(product =>
-                        <TableRow key={product.id}>
-                            <TableCell>{product.name}</TableCell>
-                            <TableCell>{product.price}</TableCell>
-                            <TableCell>{product.count}</TableCell>
-                            <TableCell>
-                                <Button>
-                                    <RemoveIcon/>
-                                </Button>
-                            </TableCell>
-                            <TableCell>
-                                <Button>Удалить все</Button>
-                            </TableCell>
-                        </TableRow>
-                    )}
+                    {this.fillTable(this.props.cart)}
                 </TableBody>
             </Table>
         );
