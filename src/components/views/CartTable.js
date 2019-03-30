@@ -6,12 +6,31 @@ import TableBody from "../../../node_modules/@material-ui/core/TableBody/TableBo
 import Button from "../../../node_modules/@material-ui/core/Button/Button";
 import RemoveIcon from "../../../node_modules/@material-ui/icons/Remove";
 import Table from "../../../node_modules/@material-ui/core/Table/Table";
+import Typography from "../../../node_modules/@material-ui/core/Typography/Typography";
 
 class CartTable extends React.Component {
     constructor(props) {
         super(props);
 
+        this.getTableBody = this.getTableBody.bind(this);
         this.fillTable = this.fillTable.bind(this);
+    }
+
+    getTableBody(products) {
+        let total = products.reduce((sum, product) => {
+            console.log(product.price, sum);
+            return sum + product.price
+        }, 0);
+        return (
+            <TableBody>
+                {this.fillTable(products)}
+                <TableRow>
+                    <TableCell colSpan={5}>
+                        <Typography variant="overline">Всего: {total}</Typography>
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+        );
     }
 
     fillTable(products) {
@@ -47,13 +66,10 @@ class CartTable extends React.Component {
                         <TableCell>Название</TableCell>
                         <TableCell>Стоимость</TableCell>
                         <TableCell>Количество</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell></TableCell>
+                        <TableCell colSpan={2}></TableCell>
                     </TableRow>
                 </TableHead>
-                <TableBody>
-                    {this.fillTable(this.props.cart)}
-                </TableBody>
+                {this.getTableBody(this.props.cart)}
             </Table>
         );
     }
