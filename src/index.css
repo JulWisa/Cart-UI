@@ -4,6 +4,6 @@
   text-align: left;
 }
 
-#cartButton{
-  margin: 2%;
+#cartButton, #productsBtn{
+  margin: 5px;
 }

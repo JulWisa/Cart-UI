@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Products from "./components/views/Products";
 import Layout from "./components/layouts/Layout";
-import CartTable from "./components/views/CartTable";
+import Cart from "./components/views/Cart";
 
 class App extends Component {
     constructor(props) {
@@ -30,10 +30,9 @@ class App extends Component {
                     <Layout>
                         <Switch>
                             <Route exact path="/" render={() => <Products products={this.state.products}/>}/>
-                            <Route exact path="/cart" render={() => <CartTable cart={this.state.cart}/>}/>
+                            <Route exact path="/cart" render={() => <Cart cart={this.state.cart}/>}/>
                         </Switch>
                     </Layout>
-
                 </BrowserRouter>
             </div>
         );
