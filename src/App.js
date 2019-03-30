@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Products from "./components/views/Products";
+import Products from "./components/views/products/Products";
 import Layout from "./components/layouts/Layout";
-import Cart from "./components/views/Cart";
+import Cart from "./components/views/cart/Cart";
 
 class App extends Component {
     constructor(props) {

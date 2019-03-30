@@ -1,8 +1,8 @@
 import React from 'react';
-import TableCell from "../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Button from "../../../node_modules/@material-ui/core/Button/Button";
-import AddIcon from "../../../node_modules/@material-ui/icons/Add";
-import TableRow from "../../../node_modules/@material-ui/core/TableRow/TableRow";
+import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
+import Button from "../../../../node_modules/@material-ui/core/Button/Button";
+import AddIcon from "../../../../node_modules/@material-ui/icons/Add";
+import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
 
 class ProductRow extends React.Component{
     constructor(props) {

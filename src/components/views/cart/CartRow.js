@@ -1,8 +1,8 @@
 import React from 'react';
-import TableRow from "../../../node_modules/@material-ui/core/TableRow/TableRow";
-import TableCell from "../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Button from "../../../node_modules/@material-ui/core/Button/Button";
-import RemoveIcon from "../../../node_modules/@material-ui/icons/Remove";
+import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
+import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
+import Button from "../../../../node_modules/@material-ui/core/Button/Button";
+import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
 
 class CartRow extends React.Component{
     render() {

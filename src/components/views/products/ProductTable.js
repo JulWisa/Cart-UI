@@ -1,9 +1,9 @@
 import React from 'react';
-import Table from "../../../node_modules/@material-ui/core/Table/Table";
-import TableHead from "../../../node_modules/@material-ui/core/TableHead/TableHead";
-import TableBody from "../../../node_modules/@material-ui/core/TableBody/TableBody";
-import TableRow from "../../../node_modules/@material-ui/core/TableRow/TableRow";
-import TableCell from "../../../node_modules/@material-ui/core/TableCell/TableCell";
+import Table from "../../../../node_modules/@material-ui/core/Table/Table";
+import TableHead from "../../../../node_modules/@material-ui/core/TableHead/TableHead";
+import TableBody from "../../../../node_modules/@material-ui/core/TableBody/TableBody";
+import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
+import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
 import ProductRow from "./ProductRow";
 
 class ProductTable extends React.Component {

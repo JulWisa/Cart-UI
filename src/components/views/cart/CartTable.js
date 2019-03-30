@@ -1,10 +1,10 @@
 import React from 'react';
-import TableHead from "../../../node_modules/@material-ui/core/TableHead/TableHead";
-import TableRow from "../../../node_modules/@material-ui/core/TableRow/TableRow";
-import TableCell from "../../../node_modules/@material-ui/core/TableCell/TableCell";
-import TableBody from "../../../node_modules/@material-ui/core/TableBody/TableBody";
-import Table from "../../../node_modules/@material-ui/core/Table/Table";
-import Typography from "../../../node_modules/@material-ui/core/Typography/Typography";
+import TableHead from "../../../../node_modules/@material-ui/core/TableHead/TableHead";
+import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
+import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
+import TableBody from "../../../../node_modules/@material-ui/core/TableBody/TableBody";
+import Table from "../../../../node_modules/@material-ui/core/Table/Table";
+import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
 import CartRow from "./CartRow";
 
 class CartTable extends React.Component {

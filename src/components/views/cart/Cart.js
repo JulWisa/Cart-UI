@@ -1,8 +1,8 @@
 import React from 'react';
 import CartTable from "./CartTable";
-import Button from "../../../node_modules/@material-ui/core/Button/Button";
+import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import {Link} from 'react-router-dom';
-import Typography from "../../../node_modules/@material-ui/core/Typography/Typography";
+import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
 
 class Cart extends React.Component{
     constructor(props){
