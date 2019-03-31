@@ -1,5 +1,5 @@
-import RemoveProductButton from "../views/cart/RemoveProductButton";
-import {removeProduct} from "../../actions/cart-actions";
+import RemoveProductButton from "../../views/cart/RemoveProductButton";
+import {removeProduct} from "../../../actions/cart-actions";
 import connect from "react-redux/es/connect/connect";
 import React from "react";
 
@@ -13,7 +13,7 @@ class RemoveProductButtonContainer extends React.Component{
 
 const mapDispatchToProps = function (dispatch, ownProps) {
     return{
-        onRemoveProduct: () => dispatch(removeProduct(ownProps.product.id))
+        onRemoveProduct: () => dispatch(removeProduct(ownProps.productId))
     }
 };
 

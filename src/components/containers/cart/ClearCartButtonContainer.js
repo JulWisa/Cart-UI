@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {clearCart} from "../../actions/cart-actions";
-import ClearCartButton from "../views/cart/ClearCartButton";
+import {clearCart} from "../../../actions/cart-actions";
+import ClearCartButton from "../../views/cart/ClearCartButton";
 
 class ClearCartButtonContainer extends React.Component{
     render() {

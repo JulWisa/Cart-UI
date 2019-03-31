@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import {Link} from 'react-router-dom';
-import ProductTableContainer from "../../containers/ProductTableContainer";
+import ProductTableContainer from "../../containers/products/ProductTableContainer";
 
 class Products extends React.Component {
     render() {

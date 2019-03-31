@@ -2,8 +2,8 @@ import React from 'react';
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
 import {RUB_FORMATTER} from "../../../consants/numberFormatters";
-import RemoveProductButtonContainer from "../../containers/RemoveProductButtonContainer";
-import RemoveProductTypeButtonContainer from "../../containers/RemoveProductTypeButtonContainer";
+import RemoveProductButtonContainer from "../../containers/cart/RemoveProductButtonContainer";
+import RemoveProductTypeButtonContainer from "../../containers/cart/RemoveProductTypeButtonContainer";
 
 class CartRow extends React.Component {
     render() {
@@ -15,7 +15,7 @@ class CartRow extends React.Component {
                 <TableCell>{price}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <RemoveProductButtonContainer product={product}/>
+                    <RemoveProductButtonContainer productId={product.id}/>
                 </TableCell>
                 <TableCell>
                     <RemoveProductTypeButtonContainer productId={product.id}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {addProduct} from "../../actions/cart-actions";
-import ProductRow from "../views/products/ProductRow";
+import {addProduct} from "../../../actions/cart-actions";
+import ProductRow from "../../views/products/ProductRow";
 
 class ProductRowContainer extends React.Component{
     render() {

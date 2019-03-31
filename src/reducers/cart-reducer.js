@@ -1,8 +1,6 @@
 import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "../actions/action-types";
 
-const initialState = [
-    {id: 3, name: "Апельсин", price: 73, count: 1},
-    {id: 4, name: "Лимон", price: 52, count: 2}];
+const initialState = [];
 
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {

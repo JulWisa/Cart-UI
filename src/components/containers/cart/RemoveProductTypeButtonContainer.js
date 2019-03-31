@@ -1,6 +1,6 @@
-import RemoveProductTypeButton from "../views/cart/RemoveProductTypeButton";
+import RemoveProductTypeButton from "../../views/cart/RemoveProductTypeButton";
 import React from "react";
-import {removeProductType} from "../../actions/cart-actions";
+import {removeProductType} from "../../../actions/cart-actions";
 import {connect} from "react-redux";
 
 class RemoveProductTypeButtonContainer extends React.Component{

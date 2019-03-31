@@ -3,7 +3,7 @@ import CartTable from "./CartTable";
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import {Link} from 'react-router-dom';
 import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
-import ClearCartButtonContainer from "../../containers/ClearCartButtonContainer";
+import ClearCartButtonContainer from "../../containers/cart/ClearCartButtonContainer";
 
 class Cart extends React.Component {
     render() {

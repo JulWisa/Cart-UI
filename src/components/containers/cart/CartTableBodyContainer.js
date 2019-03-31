@@ -1,5 +1,5 @@
 import React from "react";
-import CartTableBody from "../views/cart/CartTableBody";
+import CartTableBody from "../../views/cart/CartTableBody";
 import {connect} from "react-redux";
 
 class CartTableBodyContainer extends React.Component{
