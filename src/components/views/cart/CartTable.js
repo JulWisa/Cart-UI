@@ -6,6 +6,7 @@ import TableBody from "../../../../node_modules/@material-ui/core/TableBody/Tabl
 import Table from "../../../../node_modules/@material-ui/core/Table/Table";
 import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
 import CartRow from "./CartRow";
+import {RUB_FORMATTER} from "../../../consants/numberFormatters";
 
 class CartTable extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class CartTable extends React.Component {
                 {this.fillTable(products)}
                 <TableRow>
                     <TableCell colSpan={5}>
-                        <Typography variant="overline">Всего: {total}</Typography>
+                        <Typography variant="overline">Всего: {RUB_FORMATTER(total)}</Typography>
                     </TableCell>
                 </TableRow>
             </TableBody>

@@ -3,6 +3,7 @@ import TableCell from "../../../../node_modules/@material-ui/core/TableCell/Tabl
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import AddIcon from "../../../../node_modules/@material-ui/icons/Add";
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
+import {RUB_FORMATTER} from "../../../consants/numberFormatters";
 
 class ProductRow extends React.Component{
     constructor(props) {
@@ -21,7 +22,7 @@ class ProductRow extends React.Component{
         return(
             <TableRow key={product.id}>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{product.price}</TableCell>
+                <TableCell>{RUB_FORMATTER(product.price)}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
                     <Button onClick={this.onAddProduct}>

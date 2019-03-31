@@ -3,6 +3,7 @@ import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableR
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
+import {RUB_FORMATTER} from "../../../consants/numberFormatters";
 
 class CartRow extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class CartRow extends React.Component {
         return (
             <TableRow>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{product.price * product.count}</TableCell>
+                <TableCell>{RUB_FORMATTER((product.price * product.count))}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
                     <Button onClick={this.onRemoveProduct}>
