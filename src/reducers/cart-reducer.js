@@ -1,4 +1,4 @@
-import {ADD_PRODUCT} from "../actions/action-types";
+import {ADD_PRODUCT, CLEAR_CART} from "../actions/action-types";
 
 const initialState = [
     {id: 3, name: "Апельсин", price: 73, count: 1},
@@ -23,7 +23,9 @@ export const cartReducer = (state = initialState, action) => {
             let product = Object.assign({}, action.product);
             product.count = 1;
             return [...state, product];
-        };
+        }
+        case CLEAR_CART :
+            return [];
         default:
             return state;
     }

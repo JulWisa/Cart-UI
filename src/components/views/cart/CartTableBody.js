@@ -23,7 +23,6 @@ class CartTableBody extends React.Component {
     }
 
     getBody() {
-        console.log(this.props.cart)
         if (this.props.cart.length > 0)
             return this.props.cart.map(product =>
                 <CartRow
@@ -42,7 +41,6 @@ class CartTableBody extends React.Component {
     render() {
         return (
             <TableBody>
-                {console.log(this.props)}
                 {this.getBody()}
                 <TotalRow cart={this.props.cart}/>
             </TableBody>
