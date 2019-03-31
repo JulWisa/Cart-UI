@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from "../../../../node_modules/@material-ui/core/Table/Table";
 import CartTableHead from "./CartTableHead";
-import CartTableBody from "./CartTableBody";
+import CartTableBodyContainer from "../../containers/CartTableBodyContainer";
 
 class CartTable extends React.Component {
     constructor(props) {
@@ -23,8 +23,7 @@ class CartTable extends React.Component {
         return (
             <Table>
                 <CartTableHead/>
-                <CartTableBody cart={this.props.cart}
-                               onRemoveCartRow={this.onRemoveCartRow}
+                <CartTableBodyContainer onRemoveCartRow={this.onRemoveCartRow}
                                onRemoveCartProduct={this.onRemoveCartProduct}/>
             </Table>
         );

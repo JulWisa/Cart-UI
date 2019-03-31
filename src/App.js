@@ -10,9 +10,6 @@ import Products from "./components/views/products/Products";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            cart: []
-        };
 
         this.onClearCart = this.onClearCart.bind(this);
         this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
@@ -46,8 +43,7 @@ class App extends Component {
                                        render={() => <Products/>}/>
                                 <Route exact path="/cart"
                                        render={() =>
-                                           <Cart cart={this.state.cart}
-                                                 onClearCart={this.onClearCart}
+                                           <Cart onClearCart={this.onClearCart}
                                                  onRemoveCartRow={this.onRemoveCartRow}
                                                  onRemoveCartProduct={this.onRemoveCartProduct}/>}
                                 />
