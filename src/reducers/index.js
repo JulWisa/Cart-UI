@@ -4,5 +4,5 @@ import {productsReducer} from "./products-reducer";
 
 export const reducers = combineReducers({
     productsState: productsReducer,
-    cartSate: cartReducer
+    cartState: cartReducer
 });
