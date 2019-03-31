@@ -1,4 +1,4 @@
-import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT} from "../actions/action-types";
+import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "../actions/action-types";
 
 const initialState = [
     {id: 3, name: "Апельсин", price: 73, count: 1},
@@ -35,6 +35,10 @@ export const cartReducer = (state = initialState, action) => {
                 return newState.filter(prod => prod !== product);
             product.count--;
             return newState;
+        }
+
+        case REMOVE_PRODUCT_TYPE: {
+            return [...state].filter(product => product.id !== action.productId)
         }
 
         default:

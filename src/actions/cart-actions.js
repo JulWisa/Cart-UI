@@ -1,4 +1,4 @@
-import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT} from "./action-types";
+import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "./action-types";
 
 export function addProduct(product){
     return{
@@ -17,6 +17,13 @@ export function clearCart(payload){
 export function removeProduct(productId){
     return{
         type: REMOVE_PRODUCT,
+        productId
+    }
+}
+
+export function removeProductType(productId){
+    return{
+        type: REMOVE_PRODUCT_TYPE,
         productId
     }
 }

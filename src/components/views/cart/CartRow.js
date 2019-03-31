@@ -1,9 +1,9 @@
 import React from 'react';
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import {RUB_FORMATTER} from "../../../consants/numberFormatters";
 import RemoveProductButtonContainer from "../../containers/RemoveProductButtonContainer";
+import RemoveProductTypeButtonContainer from "../../containers/RemoveProductTypeButtonContainer";
 
 class CartRow extends React.Component {
     render() {
@@ -18,9 +18,7 @@ class CartRow extends React.Component {
                     <RemoveProductButtonContainer product={product}/>
                 </TableCell>
                 <TableCell>
-                    <Button onClick={this.props.onRemoveProduct}>
-                        Удалить все
-                    </Button>
+                    <RemoveProductTypeButtonContainer productId={product.id}/>
                 </TableCell>
             </TableRow>);
     }
