@@ -5,10 +5,20 @@ import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
 
 class CartRow extends React.Component{
+    constructor(props) {
+        super(props);
+
+        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
+    }
+
+    onRemoveCartRow(){
+        this.props.onRemoveCartRow(this.props.product.id);
+    }
+
     render() {
         let product = this.props.product;
         return (
-            <TableRow key={product.id}>
+            <TableRow>
                 <TableCell>{product.name}</TableCell>
                 <TableCell>{product.price * product.count}</TableCell>
                 <TableCell>{product.count}</TableCell>
@@ -18,7 +28,7 @@ class CartRow extends React.Component{
                     </Button>
                 </TableCell>
                 <TableCell>
-                    <Button>Удалить все</Button>
+                    <Button onClick={this.onRemoveCartRow}>Удалить все</Button>
                 </TableCell>
             </TableRow>);
     }

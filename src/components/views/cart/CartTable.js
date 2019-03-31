@@ -13,6 +13,7 @@ class CartTable extends React.Component {
 
         this.getTableBody = this.getTableBody.bind(this);
         this.fillTable = this.fillTable.bind(this);
+        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
     }
 
     getTableBody(products) {
@@ -31,13 +32,21 @@ class CartTable extends React.Component {
 
     fillTable(products) {
         if (products.length > 0)
-            return products.map(product => <CartRow product={product} key={product.id}/>);
+            return products.map(product =>
+                <CartRow
+                    product={product}
+                    onRemoveCartRow={this.onRemoveCartRow}
+                    key={product.id}/>);
         return (
             <TableRow>
                 <TableCell id="emptyCart" colSpan={5}>
                     Корзина пуста
                 </TableCell>
             </TableRow>);
+    }
+
+    onRemoveCartRow(productId){
+        this.props.onRemoveCartRow(productId);
     }
 
     render() {

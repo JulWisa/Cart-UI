@@ -22,6 +22,7 @@ class App extends Component {
 
         this.onClearCart = this.onClearCart.bind(this);
         this.onAddProduct = this.onAddProduct.bind(this);
+        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
     }
 
     onClearCart() {
@@ -50,6 +51,11 @@ class App extends Component {
         return cart;
     }
 
+    onRemoveCartRow(productId){
+        let cart = this.state.cart.filter(product => product.id !== productId);
+        this.setState({cart});
+    }
+
     render() {
         return (
             <div className="App">
@@ -64,7 +70,8 @@ class App extends Component {
                             <Route exact path="/cart"
                                    render={() =>
                                        <Cart cart={this.state.cart}
-                                             onClearCart={this.onClearCart}/>}
+                                             onClearCart={this.onClearCart}
+                                             onRemoveCartRow={this.onRemoveCartRow}/>}
                             />
                         </Switch>
                     </Layout>

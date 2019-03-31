@@ -9,17 +9,22 @@ class Cart extends React.Component{
         super(props);
 
         this.onClearCart = this.onClearCart.bind(this);
+        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
     }
 
     onClearCart(){
         this.props.onClearCart();
     }
 
+    onRemoveCartRow(productId){
+        this.props.onRemoveCartRow(productId);
+    }
+
     render(){
         return(
             <div>
                 <Typography variant="h5" id="headline">Корзина</Typography>
-                <CartTable cart={this.props.cart}/>
+                <CartTable cart={this.props.cart} onRemoveCartRow={this.onRemoveCartRow}/>
                 <Button component={Link} to="/" id="productsBtn">
                     Перейти в список товаров
                 </Button>
