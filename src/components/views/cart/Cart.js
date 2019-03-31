@@ -29,7 +29,8 @@ class Cart extends React.Component {
         return (
             <div>
                 <Typography variant="h5" id="headline">Корзина</Typography>
-                <CartTable cart={this.props.cart} onRemoveCartRow={this.onRemoveCartRow}
+                <CartTable cart={this.props.cart}
+                           onRemoveCartRow={this.onRemoveCartRow}
                            onRemoveCartProduct={this.onRemoveCartProduct}/>
                 <Button component={Link} to="/" id="productsBtn">
                     Перейти в список товаров

@@ -26,10 +26,11 @@ class CartRow extends React.Component {
 
     render() {
         let product = this.props.product;
+        let price = RUB_FORMATTER(product.price * product.count);
         return (
             <TableRow>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{RUB_FORMATTER((product.price * product.count))}</TableCell>
+                <TableCell>{price}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
                     <Button onClick={this.onRemoveProduct}>
@@ -37,7 +38,9 @@ class CartRow extends React.Component {
                     </Button>
                 </TableCell>
                 <TableCell>
-                    <Button onClick={this.onRemoveCartRow}>Удалить все</Button>
+                    <Button onClick={this.onRemoveCartRow}>
+                        Удалить все
+                    </Button>
                 </TableCell>
             </TableRow>);
     }

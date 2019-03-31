@@ -1,51 +1,14 @@
 import React from 'react';
-import TableHead from "../../../../node_modules/@material-ui/core/TableHead/TableHead";
-import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
-import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import TableBody from "../../../../node_modules/@material-ui/core/TableBody/TableBody";
 import Table from "../../../../node_modules/@material-ui/core/Table/Table";
-import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
-import CartRow from "./CartRow";
-import {RUB_FORMATTER} from "../../../consants/numberFormatters";
+import CartTableHead from "./CartTableHead";
+import CartTableBody from "./CartTableBody";
 
 class CartTable extends React.Component {
     constructor(props) {
         super(props);
 
-        this.getTableBody = this.getTableBody.bind(this);
-        this.fillTable = this.fillTable.bind(this);
         this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
         this.onRemoveCartProduct = this.onRemoveCartProduct.bind(this);
-    }
-
-    getTableBody(products) {
-        let total = products.reduce((sum, product) => sum + product.price * product.count, 0);
-        return (
-            <TableBody>
-                {this.fillTable(products)}
-                <TableRow>
-                    <TableCell colSpan={5}>
-                        <Typography variant="overline">Всего: {RUB_FORMATTER(total)}</Typography>
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        );
-    }
-
-    fillTable(products) {
-        if (products.length > 0)
-            return products.map(product =>
-                <CartRow
-                    product={product}
-                    onRemoveCartRow={this.onRemoveCartRow}
-                    onRemoveCartProduct={this.onRemoveCartProduct}
-                    key={product.id}/>);
-        return (
-            <TableRow>
-                <TableCell id="emptyCart" colSpan={5}>
-                    Корзина пуста
-                </TableCell>
-            </TableRow>);
     }
 
     onRemoveCartRow(productId){
@@ -59,15 +22,10 @@ class CartTable extends React.Component {
     render() {
         return (
             <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Название</TableCell>
-                        <TableCell>Стоимость</TableCell>
-                        <TableCell>Количество</TableCell>
-                        <TableCell colSpan={2}></TableCell>
-                    </TableRow>
-                </TableHead>
-                {this.getTableBody(this.props.cart)}
+                <CartTableHead/>
+                <CartTableBody cart={this.props.cart}
+                               onRemoveCartRow={this.onRemoveCartRow}
+                               onRemoveCartProduct={this.onRemoveCartProduct}/>
             </Table>
         );
     }
