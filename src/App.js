@@ -15,35 +15,12 @@ class App extends Component {
         };
 
         this.onClearCart = this.onClearCart.bind(this);
-        this.onAddProduct = this.onAddProduct.bind(this);
         this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
         this.onRemoveCartProduct = this.onRemoveCartProduct.bind(this);
     }
 
     onClearCart() {
         this.setState({cart: []});
-    }
-
-    onAddProduct(product) {
-        this.setState({cart: this.getCartWithProduct(product)})
-    };
-
-    getCartWithProduct(product) {
-        let cart = this.state.cart;
-        if (product.count <= 0) return cart;
-        if (cart.length > 0) {
-            let old = cart.find(prod => prod.id === product.id);
-            if (old) {
-                if (product.count === old.count)
-                    return cart;
-                let i = cart.indexOf(old);
-                cart[i].count++;
-                return cart;
-            }
-        }
-        product.count = 1;
-        cart.push(product);
-        return cart;
     }
 
     onRemoveCartRow(productId) {
@@ -66,7 +43,7 @@ class App extends Component {
                         <Layout>
                             <Switch>
                                 <Route exact path="/"
-                                       render={() => <Products onAddProduct={this.onAddProduct}/>}/>
+                                       render={() => <Products/>}/>
                                 <Route exact path="/cart"
                                        render={() =>
                                            <Cart cart={this.state.cart}

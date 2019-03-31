@@ -1,21 +1,16 @@
 import React from 'react';
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
-import AddIcon from "../../../../node_modules/@material-ui/icons/Add";
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
 import {RUB_FORMATTER} from "../../../consants/numberFormatters";
+import AddIcon from "../../../../node_modules/@material-ui/icons/Add";
+import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 
 class ProductRow extends React.Component{
-    constructor(props) {
-        super(props);
-
-        this.onAddProduct = this.onAddProduct.bind(this);
-    }
-
-    onAddProduct(){
-        let product = Object.assign({}, this.props.product);
-        this.props.onAddProduct(product);
-    };
+    //
+    // onAddProduct(){
+    //     let product = Object.assign({}, this.props.product);
+    //     this.props.onAddProduct(product);
+    // };
 
     render(){
         let product = this.props.product;
@@ -25,7 +20,7 @@ class ProductRow extends React.Component{
                 <TableCell>{RUB_FORMATTER(product.price)}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <Button onClick={this.onAddProduct}>
+                    <Button onClick={() => this.props.onAddProduct(product)}>
                         <AddIcon/>
                     </Button>
                 </TableCell>
