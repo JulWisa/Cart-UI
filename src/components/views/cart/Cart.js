@@ -6,32 +6,11 @@ import Typography from "../../../../node_modules/@material-ui/core/Typography/Ty
 import ClearCartButtonContainer from "../../containers/ClearCartButtonContainer";
 
 class Cart extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onClearCart = this.onClearCart.bind(this);
-        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
-        this.onRemoveCartProduct = this.onRemoveCartProduct.bind(this);
-    }
-
-    onClearCart() {
-        this.props.onClearCart();
-    }
-
-    onRemoveCartRow(productId) {
-        this.props.onRemoveCartRow(productId);
-    }
-
-    onRemoveCartProduct(product) {
-        this.props.onRemoveCartProduct(product);
-    }
-
     render() {
         return (
             <div>
                 <Typography variant="h5" id="headline">Корзина</Typography>
-                <CartTable onRemoveCartRow={this.onRemoveCartRow}
-                           onRemoveCartProduct={this.onRemoveCartProduct}/>
+                <CartTable/>
                 <Button component={Link} to="/" id="productsBtn">
                     Перейти в список товаров
                 </Button>
