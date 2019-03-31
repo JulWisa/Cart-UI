@@ -16,13 +16,13 @@ class App extends Component {
                 {id: 3, name: "Апельсин", price: 73, count: 68},
                 {id: 4, name: "Лимон", price: 52, count: 33}
             ],
-            cart: [
-            ]
+            cart: []
         };
 
         this.onClearCart = this.onClearCart.bind(this);
         this.onAddProduct = this.onAddProduct.bind(this);
         this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
+        this.onRemoveCartProduct = this.onRemoveCartProduct.bind(this);
     }
 
     onClearCart() {
@@ -56,6 +56,13 @@ class App extends Component {
         this.setState({cart});
     }
 
+    onRemoveCartProduct(product){
+        let cart = this.state.cart;
+        let i = cart.indexOf(product);
+        cart[i].count--;
+        this.setState({cart});
+    }
+
     render() {
         return (
             <div className="App">
@@ -71,7 +78,8 @@ class App extends Component {
                                    render={() =>
                                        <Cart cart={this.state.cart}
                                              onClearCart={this.onClearCart}
-                                             onRemoveCartRow={this.onRemoveCartRow}/>}
+                                             onRemoveCartRow={this.onRemoveCartRow}
+                                             onRemoveCartProduct={this.onRemoveCartProduct}/>}
                             />
                         </Switch>
                     </Layout>

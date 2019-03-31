@@ -14,6 +14,7 @@ class CartTable extends React.Component {
         this.getTableBody = this.getTableBody.bind(this);
         this.fillTable = this.fillTable.bind(this);
         this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
+        this.onRemoveCartProduct = this.onRemoveCartProduct.bind(this);
     }
 
     getTableBody(products) {
@@ -36,6 +37,7 @@ class CartTable extends React.Component {
                 <CartRow
                     product={product}
                     onRemoveCartRow={this.onRemoveCartRow}
+                    onRemoveCartProduct={this.onRemoveCartProduct}
                     key={product.id}/>);
         return (
             <TableRow>
@@ -47,6 +49,10 @@ class CartTable extends React.Component {
 
     onRemoveCartRow(productId){
         this.props.onRemoveCartRow(productId);
+    }
+
+    onRemoveCartProduct(product){
+        this.props.onRemoveCartProduct(product);
     }
 
     render() {

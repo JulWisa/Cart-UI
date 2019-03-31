@@ -4,15 +4,23 @@ import TableCell from "../../../../node_modules/@material-ui/core/TableCell/Tabl
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
 
-class CartRow extends React.Component{
+class CartRow extends React.Component {
     constructor(props) {
         super(props);
 
         this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
+        this.onRemoveProduct = this.onRemoveProduct.bind(this);
     }
 
-    onRemoveCartRow(){
+    onRemoveCartRow() {
         this.props.onRemoveCartRow(this.props.product.id);
+    }
+
+    onRemoveProduct() {
+        if (this.props.product.count === 1)
+            this.props.onRemoveCartRow(this.props.product.id);
+        else
+            this.props.onRemoveCartProduct(this.props.product);
     }
 
     render() {
@@ -23,7 +31,7 @@ class CartRow extends React.Component{
                 <TableCell>{product.price * product.count}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <Button>
+                    <Button onClick={this.onRemoveProduct}>
                         <RemoveIcon/>
                     </Button>
                 </TableCell>
