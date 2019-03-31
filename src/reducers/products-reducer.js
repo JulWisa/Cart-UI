@@ -1,0 +1,1 @@
+export const productsReducer = (state = [], action) => state;

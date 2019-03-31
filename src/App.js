@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Products from "./components/views/products/Products";
 import Layout from "./components/layouts/Layout";
 import Cart from "./components/views/cart/Cart";
+import {Provider} from "react-redux";
+import {store} from "./store";
 
 class App extends Component {
     constructor(props) {
@@ -38,7 +40,7 @@ class App extends Component {
         if (product.count <= 0) return cart;
         if (cart.length > 0) {
             let old = cart.find(prod => prod.id === product.id);
-            if (old){
+            if (old) {
                 if (product.count === old.count)
                     return cart;
                 let i = cart.indexOf(old);
@@ -51,12 +53,12 @@ class App extends Component {
         return cart;
     }
 
-    onRemoveCartRow(productId){
+    onRemoveCartRow(productId) {
         let cart = this.state.cart.filter(product => product.id !== productId);
         this.setState({cart});
     }
 
-    onRemoveCartProduct(product){
+    onRemoveCartProduct(product) {
         let cart = this.state.cart;
         let i = cart.indexOf(product);
         cart[i].count--;
@@ -66,24 +68,26 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <BrowserRouter>
-                    <Layout>
-                        <Switch>
-                            <Route exact path="/"
-                                   render={() =>
-                                       <Products products={this.state.products}
-                                                 onAddProduct={this.onAddProduct}/>}
-                            />
-                            <Route exact path="/cart"
-                                   render={() =>
-                                       <Cart cart={this.state.cart}
-                                             onClearCart={this.onClearCart}
-                                             onRemoveCartRow={this.onRemoveCartRow}
-                                             onRemoveCartProduct={this.onRemoveCartProduct}/>}
-                            />
-                        </Switch>
-                    </Layout>
-                </BrowserRouter>
+                <Provider store={store}>
+                    <BrowserRouter>
+                        <Layout>
+                            <Switch>
+                                <Route exact path="/"
+                                       render={() =>
+                                           <Products products={this.state.products}
+                                                     onAddProduct={this.onAddProduct}/>}
+                                />
+                                <Route exact path="/cart"
+                                       render={() =>
+                                           <Cart cart={this.state.cart}
+                                                 onClearCart={this.onClearCart}
+                                                 onRemoveCartRow={this.onRemoveCartRow}
+                                                 onRemoveCartProduct={this.onRemoveCartProduct}/>}
+                                />
+                            </Switch>
+                        </Layout>
+                    </BrowserRouter>
+                </Provider>
             </div>
         );
     }
