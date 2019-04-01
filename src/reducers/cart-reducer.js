@@ -1,10 +1,10 @@
-import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "../actions/action-types";
+import {ADD_PRODUCT_TO_CART, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "../actions/action-types";
 
 const initialState = [];
 
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_PRODUCT: {
+        case ADD_PRODUCT_TO_CART: {
             if (action.product.count <= 0) return state;
             let newState = [...state];
             if (newState.length > 0) {

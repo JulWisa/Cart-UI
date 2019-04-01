@@ -1,8 +1,9 @@
-import {ADD_PRODUCT, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "./action-types";
+import {ADD_PRODUCT_TO_CART, CLEAR_CART, REMOVE_PRODUCT, REMOVE_PRODUCT_TYPE} from "./action-types";
 
+//cart, products
 export function addProduct(product){
     return{
-        type: ADD_PRODUCT,
+        type: ADD_PRODUCT_TO_CART,
         product
     }
 }

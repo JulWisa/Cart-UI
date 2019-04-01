@@ -2,7 +2,7 @@ import React from 'react';
 import Table from "../../../../node_modules/@material-ui/core/Table/Table";
 import TableBody from "../../../../node_modules/@material-ui/core/TableBody/TableBody";
 import ProductTableHead from "./ProductTableHead";
-import ProductRowContainer from "../../containers/products/ProductRowContainer";
+import ProductRow from "./ProductRow";
 
 class ProductTable extends React.Component {
     render() {
@@ -11,7 +11,7 @@ class ProductTable extends React.Component {
                 <ProductTableHead/>
                 <TableBody>
                     {this.props.products.map(product =>
-                        <ProductRowContainer key={product.id} product={product}/>
+                        <ProductRow key={product.id} product={product} onAddProduct={() => this.props.onAddProduct(product)}/>
                     )}
                 </TableBody>
             </Table>
