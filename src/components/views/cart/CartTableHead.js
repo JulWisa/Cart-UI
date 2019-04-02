@@ -11,7 +11,7 @@ class CartTableHead extends React.Component{
                     <TableCell>Название</TableCell>
                     <TableCell>Стоимость</TableCell>
                     <TableCell>Количество</TableCell>
-                    <TableCell colSpan={2}></TableCell>
+                    <TableCell colSpan={2}/>
                 </TableRow>
             </TableHead>
         );

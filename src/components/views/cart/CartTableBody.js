@@ -17,6 +17,8 @@ class CartTableBody extends React.Component {
             return this.props.cart.map(product =>
                 <CartRow
                     product={product}
+                    onRemoveProduct={() => this.props.onRemoveProduct(product.id)}
+                    onRemoveProductType={() => this.props.onRemoveProductType(product.id)}
                     key={product.id}/>);
         return (
             <TableRow>
