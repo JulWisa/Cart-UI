@@ -1,7 +1,7 @@
 import Cart from "../../views/cart/Cart";
 import React from "react";
 import {connect} from "react-redux";
-import {clearCart, removeProduct, removeProductType} from "../../../actions/cart-actions";
+import {clearCart, removeProduct, removeProductType} from "../../../actions/actions";
 
 class CartContainer extends React.Component{
     render() {
@@ -13,9 +13,9 @@ class CartContainer extends React.Component{
 
 const mapDispatchToProps = function (dispatch) {
     return {
-        onClearCart: () => dispatch(clearCart()),
-        onRemoveProduct: productId => dispatch(removeProduct(productId)),
-        onRemoveProductType: productId => dispatch(removeProductType(productId))
+        onClearCart: cart => dispatch(clearCart(cart)),
+        onRemoveProduct: product => dispatch(removeProduct(product)),
+        onRemoveProductType: product => dispatch(removeProductType(product))
     };
 };
 

@@ -1,4 +1,5 @@
-import {ADD_PRODUCT_TO_CART} from "../actions/action-types";
+import {ADD_PRODUCT_TO_CART, CLEAR_CART, REMOVE_PRODUCT_TYPE_FROM_CART} from "../actions/action-types";
+import {REMOVE_PRODUCT_FROM_CART} from "../actions/action-types";
 
 const initialState = [
     {id: 0, name: "Яблоко", price: 86, count: 0},
@@ -16,6 +17,40 @@ export const productsReducer = (state = initialState, action) => {
             let newState = [...state];
             let i = newState.indexOf(action.product);
             newState[i] = product;
+            return newState;
+        }
+        case REMOVE_PRODUCT_FROM_CART: {
+            let newState = [...state];
+            let product = Object.assign({}, action.product);
+            let oldProduct = newState.find(prod => prod.id === product.id);
+            if (oldProduct){
+                let product = Object.assign({}, oldProduct);
+                product.count++;
+                let i = newState.indexOf(oldProduct);
+                newState[i] = product;
+                return newState;
+            }
+            product.count = 1;
+            newState.push(product);
+            return newState;
+        }
+        case REMOVE_PRODUCT_TYPE_FROM_CART:{
+            let product = Object.assign({}, action.product);
+            let newState = [...state];
+            let oldProd = newState.find(prod => prod.id === product.id);
+            let i = newState.indexOf(oldProd);
+            product.count = newState[i].count + product.count;
+            newState[i] = product;
+            return newState;
+        }
+        case CLEAR_CART:{
+            let newState = [...state];
+            action.cart.forEach(product => {
+                let oldProd = newState.find(prod => prod.id === product.id);
+                let i = newState.indexOf(oldProd);
+                product.count = newState[i].count + product.count;
+                newState[i] = product;
+            });
             return newState;
         }
         default: return state;

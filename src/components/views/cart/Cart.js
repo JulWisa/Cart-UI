@@ -11,12 +11,12 @@ class Cart extends React.Component {
             <div>
                 <Typography variant="h5" id="headline">Корзина</Typography>
                 <CartTable cart={this.props.cart}
-                           onRemoveProduct={productId => this.props.onRemoveProduct(productId)}
-                           onRemoveProductType={productId => this.props.onRemoveProductType(productId)}/>
+                           onRemoveProduct={product => this.props.onRemoveProduct(product)}
+                           onRemoveProductType={product => this.props.onRemoveProductType(product)}/>
                 <Button component={Link} to="/" id="productsBtn">
                     Перейти в список товаров
                 </Button>
-                <ClearCartButton onClearCart={this.props.onClearCart}/>
+                <ClearCartButton onClearCart={() => this.props.onClearCart(this.props.cart)}/>
             </div>
         );
     }

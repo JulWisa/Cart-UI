@@ -9,8 +9,8 @@ class CartTable extends React.Component {
             <Table>
                 <CartTableHead/>
                 <CartTableBody cart={this.props.cart}
-                               onRemoveProduct={productId => this.props.onRemoveProduct(productId)}
-                               onRemoveProductType={productId => this.props.onRemoveProductType(productId)}/>
+                               onRemoveProduct={product => this.props.onRemoveProduct(product)}
+                               onRemoveProductType={product => this.props.onRemoveProductType(product)}/>
             </Table>
         );
     }
