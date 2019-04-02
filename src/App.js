@@ -26,41 +26,90 @@ class App extends Component {
     }
 
     onClearCart() {
-        this.setState({cart: []});
+        let cartCopy = [...this.state.cart];
+        let products = this.state.products;
+        cartCopy.forEach(product => {
+            products = this.getArrayWithProducts(products, product)
+        });
+        this.setState({cart: [], products});
     }
 
     onAddProduct(product) {
-        this.setState({cart: this.getCartWithProduct(product)})
+        let cart = this.getArrayWithProduct(this.state.cart, product);
+        let products = this.getArrayWithoutProduct(this.state.products, product);
+
+        this.setState({cart, products});
     };
 
-    getCartWithProduct(product) {
-        let cart = this.state.cart;
-        if (product.count <= 0) return cart;
-        if (cart.length > 0) {
-            let old = cart.find(prod => prod.id === product.id);
-            if (old){
-                if (product.count === old.count)
-                    return cart;
-                let i = cart.indexOf(old);
-                cart[i].count++;
-                return cart;
-            }
+    getArrayWithProduct(arr, product) {
+        if (product.count === 0) return arr;
+
+        let productCopy = Object.assign({}, product);
+        if (arr.length === 0) {
+            productCopy.count = 1;
+            return [productCopy];
         }
-        product.count = 1;
-        cart.push(product);
-        return cart;
+
+        let array = [...arr];
+        let oldProduct = array.find(prod => prod.id === product.id);
+        if (!!oldProduct) {
+            let i = array.indexOf(oldProduct);
+            productCopy.count = oldProduct.count + 1;
+            array[i] = productCopy;
+            return array;
+        }
+
+        productCopy.count = 1;
+        return [...arr, productCopy];
     }
 
-    onRemoveCartRow(productId){
+    getArrayWithProducts(arr, product) {
+        if (product.count === 0) return arr;
+
+        let productCopy = Object.assign({}, product);
+        if (arr.length === 0) {
+            productCopy.count = 1;
+            return [productCopy];
+        }
+
+        let array = [...arr];
+        let oldProduct = array.find(prod => prod.id === product.id);
+        if (!!oldProduct) {
+            let i = array.indexOf(oldProduct);
+            productCopy.count = oldProduct.count + product.count;
+            array[i] = productCopy;
+            return array;
+        }
+
+        productCopy.count = 1;
+        return [...arr, productCopy];
+    }
+
+    getArrayWithoutProduct(arr, product) {
+        if (product.count === 0) return arr;
+        let array = [...arr];
+        product = array.find(prod => prod.id === product.id);
+        let productCopy = Object.assign({}, product);
+        productCopy.count--;
+        let i = array.indexOf(product);
+        array[i] = productCopy;
+        return array;
+    }
+
+    onRemoveCartRow(productId) {
         let cart = this.state.cart.filter(product => product.id !== productId);
-        this.setState({cart});
+
+        let prod = this.state.cart.find(prod => prod.id === productId);
+        let products = this.getArrayWithProducts(this.state.products, prod);
+
+        this.setState({cart, products});
     }
 
-    onRemoveCartProduct(product){
-        let cart = this.state.cart;
-        let i = cart.indexOf(product);
-        cart[i].count--;
-        this.setState({cart});
+    onRemoveCartProduct(product) {
+        let cart = this.getArrayWithoutProduct(this.state.cart, product);
+        let products = this.getArrayWithProduct(this.state.products, product);
+
+        this.setState({cart, products});
     }
 
     render() {
