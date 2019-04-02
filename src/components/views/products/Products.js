@@ -1,13 +1,14 @@
 import React from 'react';
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import {Link} from 'react-router-dom';
-import ProductTableContainer from "../../containers/products/ProductTableContainer";
+import ProductTable from "./ProductTable";
 
 class Products extends React.Component {
     render() {
         return (
             <div>
-                <ProductTableContainer/>
+                <ProductTable products={this.props.products}
+                              onAddProduct={product => this.props.onAddProduct(product)}/>
                 <Button id="cartButton" component={Link} to="/cart">Корзина</Button>
             </div>
 

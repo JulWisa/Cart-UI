@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from "react-redux";
-import ProductTable from "../../views/products/ProductTable";
 import {addProduct} from "../../../actions/cart-actions";
+import Products from "../../views/products/Products";
 
-class ProductTableContainer extends React.Component{
+class ProductsContainer extends React.Component{
     render() {
         return (
-            <ProductTable products={this.props.products} onAddProduct={this.props.onAddProduct}/>
+            <Products {...this.props}/>
         );
     }
 }
@@ -23,4 +23,4 @@ const mapDispatchToProps = function (dispatch) {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductTableContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);

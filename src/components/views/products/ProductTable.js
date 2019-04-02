@@ -11,7 +11,9 @@ class ProductTable extends React.Component {
                 <ProductTableHead/>
                 <TableBody>
                     {this.props.products.map(product =>
-                        <ProductRow key={product.id} product={product} onAddProduct={() => this.props.onAddProduct(product)}/>
+                        <ProductRow product={product}
+                                    onAddProduct={() => this.props.onAddProduct(product)}
+                                    key={product.id}/>
                     )}
                 </TableBody>
             </Table>
