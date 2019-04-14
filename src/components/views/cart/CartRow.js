@@ -6,17 +6,6 @@ import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
 import {RUB_FORMATTER} from "../../../consants/numberFormatters";
 
 class CartRow extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
-        this.onRemoveProduct = this.onRemoveProduct.bind(this);
-    }
-
-    onRemoveCartRow() {
-        this.props.onRemoveCartRow(this.props.product.id);
-    }
-
     onRemoveProduct() {
         if (this.props.product.count === 1)
             this.props.onRemoveCartRow(this.props.product.id);
@@ -33,12 +22,12 @@ class CartRow extends React.Component {
                 <TableCell>{price}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <Button onClick={this.onRemoveProduct}>
+                    <Button onClick={() => this.onRemoveProduct()}>
                         <RemoveIcon/>
                     </Button>
                 </TableCell>
                 <TableCell>
-                    <Button onClick={this.onRemoveCartRow}>
+                    <Button onClick={() => this.props.onRemoveCartRow(product.id)}>
                         Удалить все
                     </Button>
                 </TableCell>

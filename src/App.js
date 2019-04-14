@@ -10,11 +10,6 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = stateService.initiateState();
-
-        this.onClearCart = this.onClearCart.bind(this);
-        this.onAddProduct = this.onAddProduct.bind(this);
-        this.onRemoveCartRow = this.onRemoveCartRow.bind(this);
-        this.onRemoveCartProduct = this.onRemoveCartProduct.bind(this);
     }
 
     onClearCart() {
@@ -43,14 +38,14 @@ class App extends Component {
                             <Route exact path="/"
                                    render={() =>
                                        <Products products={this.state.products}
-                                                 onAddProduct={this.onAddProduct}/>}
+                                                 onAddProduct={product => this.onAddProduct(product)}/>}
                             />
                             <Route exact path="/cart"
                                    render={() =>
                                        <Cart cart={this.state.cart}
-                                             onClearCart={this.onClearCart}
-                                             onRemoveCartRow={this.onRemoveCartRow}
-                                             onRemoveCartProduct={this.onRemoveCartProduct}/>}
+                                             onClearCart={() => this.onClearCart()}
+                                             onRemoveCartRow={productId => this.onRemoveCartRow(productId)}
+                                             onRemoveCartProduct={product => this.onRemoveCartProduct(product)}/>}
                             />
                         </Switch>
                     </Layout>
