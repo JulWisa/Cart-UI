@@ -1,10 +1,11 @@
-import React from 'react';
-import CartTable from "./CartTable";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
-class Cart extends React.Component {
+import CartTable from "./CartTable";
+
+class Cart extends Component {
     render() {
         return (
             <div>

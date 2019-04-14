@@ -1,7 +1,7 @@
-import React from 'react';
-import Paper from "../../../node_modules/@material-ui/core/Paper/Paper";
+import React, {Component} from 'react';
+import Paper from "@material-ui/core/Paper";
 
-class Layout extends React.Component{
+class Layout extends Component{
     render(){
         return(
             <Paper className="layout">

@@ -1,11 +1,12 @@
-import React from 'react';
-import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
-import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
-import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
+import React, {Component} from 'react';
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import Button from "@material-ui/core/Button";
+import RemoveIcon from "@material-ui/icons/Remove";
+
 import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
-class CartRow extends React.Component {
+class CartRow extends Component {
     onRemoveProduct() {
         if (this.props.product.count === 1)
             this.props.onRemoveCartRow(this.props.product.id);

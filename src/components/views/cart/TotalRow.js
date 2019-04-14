@@ -1,10 +1,11 @@
-import React from 'react';
-import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
-import {RUB_FORMATTER} from "../../../common/numberFormatters";
-import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
+import React, {Component} from 'react';
+import TableCell from "@material-ui/core/TableCell";
+import Typography from "@material-ui/core/Typography";
+import TableRow from "@material-ui/core/TableRow";
 
-class TotalRow extends React.Component {
+import {RUB_FORMATTER} from "../../../common/numberFormatters";
+
+class TotalRow extends Component {
     render() {
         let total = this.props.cart.reduce((sum, product) => sum + product.price * product.count, 0);
         let formattedTotal = RUB_FORMATTER(total);

@@ -1,9 +1,10 @@
-import React from 'react';
-import Table from "../../../../node_modules/@material-ui/core/Table/Table";
+import React, {Component} from 'react';
+import Table from "@material-ui/core/Table";
+
 import CartTableHead from "./CartTableHead";
 import CartTableBody from "./CartTableBody";
 
-class CartTable extends React.Component {
+class CartTable extends Component {
     render() {
         return (
             <Table>

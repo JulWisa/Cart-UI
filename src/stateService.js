@@ -98,12 +98,3 @@ function getArrayWithoutProduct(arr, product) {
     array[i] = productCopy;
     return array;
 }
-
-export default {
-    addProductToCart,
-    clearCart,
-    initiateState,
-    removeProductFromCart,
-    removeProductTypeFromCart
-}
-

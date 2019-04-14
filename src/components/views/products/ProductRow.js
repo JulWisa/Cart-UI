@@ -1,11 +1,12 @@
-import React from 'react';
-import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
-import AddIcon from "../../../../node_modules/@material-ui/icons/Add";
-import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
+import React, {Component} from 'react';
+import TableCell from "@material-ui/core/TableCell";
+import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
+import TableRow from "@material-ui/core/TableRow";
+
 import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
-class ProductRow extends React.Component{
+class ProductRow extends Component{
     onAddProduct(){
         let product = Object.assign({}, this.props.product);
         this.props.onAddProduct(product);

@@ -1,10 +1,11 @@
-import React from 'react';
-import Table from "../../../../node_modules/@material-ui/core/Table/Table";
-import TableBody from "../../../../node_modules/@material-ui/core/TableBody/TableBody";
+import React, {Component} from 'react';
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+
 import ProductRow from "./ProductRow";
 import ProductTableHead from "./ProductTableHead";
 
-class ProductTable extends React.Component {
+class ProductTable extends Component {
     render() {
         return (
             <Table>
