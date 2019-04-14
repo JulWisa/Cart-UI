@@ -3,7 +3,7 @@ import TableCell from "../../../../node_modules/@material-ui/core/TableCell/Tabl
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import AddIcon from "../../../../node_modules/@material-ui/icons/Add";
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
-import {RUB_FORMATTER} from "../../../consants/numberFormatters";
+import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
 class ProductRow extends React.Component{
     onAddProduct(){

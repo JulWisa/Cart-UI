@@ -3,7 +3,7 @@ import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableR
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
 import Button from "../../../../node_modules/@material-ui/core/Button/Button";
 import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
-import {RUB_FORMATTER} from "../../../consants/numberFormatters";
+import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
 class CartRow extends React.Component {
     onRemoveProduct() {
