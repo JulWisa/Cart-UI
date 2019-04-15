@@ -7,11 +7,6 @@ import TableRow from "@material-ui/core/TableRow";
 import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
 class ProductRow extends Component{
-    onAddProduct(){
-        let product = Object.assign({}, this.props.product);
-        this.props.onAddProduct(product);
-    };
-
     render(){
         let product = this.props.product;
         return(
@@ -20,7 +15,7 @@ class ProductRow extends Component{
                 <TableCell>{RUB_FORMATTER(product.price)}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <Button onClick={() => this.onAddProduct()}>
+                    <Button onClick={() => this.props.onAddProduct(this.props.product.id)}>
                         <AddIcon/>
                     </Button>
                 </TableCell>

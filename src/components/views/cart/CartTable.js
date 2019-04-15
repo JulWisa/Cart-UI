@@ -10,8 +10,9 @@ class CartTable extends Component {
             <Table>
                 <CartTableHead/>
                 <CartTableBody cart={this.props.cart}
+                               products={this.props.products}
                                onRemoveCartRow={productId => this.props.onRemoveCartRow(productId)}
-                               onRemoveCartProduct={product => this.props.onRemoveCartProduct(product)}/>
+                               onRemoveCartProduct={productId => this.props.onRemoveCartProduct(productId)}/>
             </Table>
         );
     }

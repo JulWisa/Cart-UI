@@ -12,7 +12,7 @@ class ProductTable extends Component {
                 <ProductTableHead/>
                 <TableBody>
                     {this.props.products.map(product =>
-                        <ProductRow key={product.id} product={product} onAddProduct={product => this.props.onAddProduct(product)}/>
+                        <ProductRow key={product.id} product={product} onAddProduct={productId => this.props.onAddProduct(productId)}/>
                     )}
                 </TableBody>
             </Table>

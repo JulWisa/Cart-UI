@@ -9,7 +9,7 @@ class Products extends Component {
         return (
             <div>
                 <ProductTable products={this.props.products}
-                              onAddProduct={product => this.props.onAddProduct(product)}/>
+                              onAddProduct={productId => this.props.onAddProduct(productId)}/>
                 <Button id="cartButton"
                         component={Link}
                         to="/cart">Корзина</Button>

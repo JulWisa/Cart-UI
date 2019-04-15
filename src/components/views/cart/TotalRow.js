@@ -6,8 +6,13 @@ import TableRow from "@material-ui/core/TableRow";
 import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
 class TotalRow extends Component {
+    getPrice(id){
+        let result = this.props.products.find(product => product.id === id);
+        return result.price
+    }
+
     render() {
-        let total = this.props.cart.reduce((sum, product) => sum + product.price * product.count, 0);
+        let total = this.props.cart.reduce((sum, cartElement) => sum + this.getPrice(cartElement.id) * cartElement.count, 0);
         let formattedTotal = RUB_FORMATTER(total);
         return (
             <TableRow>

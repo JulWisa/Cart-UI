@@ -7,14 +7,22 @@ import TotalRow from "./TotalRow";
 import CartRow from "./CartRow";
 
 class CartTableBody extends Component {
+    getProductData(id) {
+        let result = this.props.products.find(product => product.id === id);
+        return {name: result.name, price: result.price}
+    }
+
     getBody() {
         if (this.props.cart.length > 0)
-            return this.props.cart.map(product =>
-                <CartRow
-                    product={product}
+            return this.props.cart.map(cartElement => {
+                let productData = this.getProductData(cartElement.id);
+                let cartProduct = Object.assign(productData, cartElement);
+                return <CartRow
+                    product={cartProduct}
                     onRemoveCartRow={productId => this.props.onRemoveCartRow(productId)}
-                    onRemoveCartProduct={product => this.props.onRemoveCartProduct(product)}
-                    key={product.id}/>);
+                    onRemoveCartProduct={productId => this.props.onRemoveCartProduct(productId)}
+                    key={cartElement.id}/>
+            });
         return (
             <TableRow>
                 <TableCell id="emptyCart" colSpan={5}>
@@ -27,7 +35,7 @@ class CartTableBody extends Component {
         return (
             <TableBody>
                 {this.getBody()}
-                <TotalRow cart={this.props.cart}/>
+                <TotalRow cart={this.props.cart} products={this.props.products}/>
             </TableBody>
         );
     }

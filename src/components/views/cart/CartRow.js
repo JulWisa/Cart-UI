@@ -7,13 +7,6 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import {RUB_FORMATTER} from "../../../common/numberFormatters";
 
 class CartRow extends Component {
-    onRemoveProduct() {
-        if (this.props.product.count === 1)
-            this.props.onRemoveCartRow(this.props.product.id);
-        else
-            this.props.onRemoveCartProduct(this.props.product);
-    }
-
     render() {
         let product = this.props.product;
         let price = RUB_FORMATTER(product.price * product.count);
@@ -23,7 +16,7 @@ class CartRow extends Component {
                 <TableCell>{price}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <Button onClick={() => this.onRemoveProduct()}>
+                    <Button onClick={() => this.props.onRemoveCartProduct(product.id)}>
                         <RemoveIcon/>
                     </Button>
                 </TableCell>
