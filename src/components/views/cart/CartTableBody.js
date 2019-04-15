@@ -25,7 +25,7 @@ class CartTableBody extends Component {
             });
         return (
             <TableRow>
-                <TableCell id="emptyCart" colSpan={5}>
+                <TableCell className="emptyCart" colSpan={5}>
                     Корзина пуста
                 </TableCell>
             </TableRow>);

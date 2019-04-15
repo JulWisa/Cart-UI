@@ -4,15 +4,15 @@
   text-align: left;
 }
 
-#cartButton, #productsBtn{
-  margin: 5px;
+.cartButton{
+  margin: 5px !important;
 }
 
-#emptyCart{
-  text-align: center;
+.emptyCart{
+  text-align: center !important;
 }
 
-#headline{
+.headline{
   padding-top: 5px;
   padding-left: 15px;
   text-align: center;
