@@ -15,14 +15,14 @@ export function clearCart(state) {
     let cartCopy = [...state.cart];
     let products = state.products;
     cartCopy.forEach(product => {
-        products = getArrayWithProducts(products, product)
+        products = getArrayWithProducts(products, product, product.count)
     });
 
     return {cart: [], products};
 }
 
 export function addProductToCart(state, product) {
-    let cart = getArrayWithProduct(state.cart, product);
+    let cart = getArrayWithProducts(state.cart, product, 1);
     let products = getArrayWithoutProduct(state.products, product);
 
     return {cart, products};
@@ -32,19 +32,19 @@ export function removeProductTypeFromCart(state, productId) {
     let cart = state.cart.filter(product => product.id !== productId);
 
     let prod = state.cart.find(prod => prod.id === productId);
-    let products = getArrayWithProducts(state.products, prod);
+    let products = getArrayWithProducts(state.products, prod, prod.count);
 
     return {cart, products};
 }
 
 export function removeProductFromCart(state, product) {
     let cart = getArrayWithoutProduct(state.cart, product);
-    let products = getArrayWithProduct(state.products, product);
+    let products = getArrayWithProducts(state.products, product, 1);
 
     return {cart, products};
 }
 
-function getArrayWithProduct(arr, product) {
+function getArrayWithProducts(arr, product, count) {
     if (product.count === 0) return arr;
 
     let productCopy = Object.assign({}, product);
@@ -57,29 +57,7 @@ function getArrayWithProduct(arr, product) {
     let oldProduct = array.find(prod => prod.id === product.id);
     if (!!oldProduct) {
         let i = array.indexOf(oldProduct);
-        productCopy.count = oldProduct.count + 1;
-        array[i] = productCopy;
-        return array;
-    }
-
-    productCopy.count = 1;
-    return [...arr, productCopy];
-}
-
-function getArrayWithProducts(arr, product) {
-    if (product.count === 0) return arr;
-
-    let productCopy = Object.assign({}, product);
-    if (arr.length === 0) {
-        productCopy.count = 1;
-        return [productCopy];
-    }
-
-    let array = [...arr];
-    let oldProduct = array.find(prod => prod.id === product.id);
-    if (!!oldProduct) {
-        let i = array.indexOf(oldProduct);
-        productCopy.count = oldProduct.count + product.count;
+        productCopy.count = oldProduct.count + count;
         array[i] = productCopy;
         return array;
     }
