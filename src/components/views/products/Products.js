@@ -1,9 +1,10 @@
-import React from 'react';
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Button from "@material-ui/core/Button";
+
 import ProductTable from "./ProductTable";
 
-class Products extends React.Component {
+class Products extends Component {
     render() {
         return (
             <div>

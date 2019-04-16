@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
+import React, {Component} from "react";
+import Button from "@material-ui/core/Button";
 
-class ClearCartButton extends React.Component{
+class ClearCartButton extends Component{
     render() {
         return (
             <Button onClick={this.props.onClearCart}>

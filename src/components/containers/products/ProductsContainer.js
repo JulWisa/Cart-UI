@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {addProduct} from "../../../actions/actions";
+
+import * as action from "../../../actions/actions";
 import Products from "../../views/products/Products";
 
-class ProductsContainer extends React.Component{
+class ProductsContainer extends Component{
     render() {
         return (
             <Products {...this.props}/>
@@ -19,7 +20,7 @@ const mapStateToProps = function(store) {
 
 const mapDispatchToProps = function (dispatch) {
     return {
-        onAddProduct: (product) => {dispatch(addProduct(product))}
+        onAddProduct: (product) => {dispatch(action.addProduct(product))}
     }
 };
 

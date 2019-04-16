@@ -1,8 +1,8 @@
-import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
-import Button from "../../../../node_modules/@material-ui/core/Button/Button";
-import React from "react";
+import React, {Component} from "react";
+import RemoveIcon from "@material-ui/icons/Remove";
+import Button from "@material-ui/core/Button";
 
-class RemoveProductButton extends React.Component{
+class RemoveProductButton extends Component{
     render() {
         return (
             <Button onClick={this.props.onRemoveProduct}>

@@ -1,9 +1,9 @@
-import React from 'react';
-import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
-import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import TableHead from "../../../../node_modules/@material-ui/core/TableHead/TableHead";
+import React, {Component} from 'react';
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
 
-class CartTableHead extends React.Component{
+class CartTableHead extends Component{
     render() {
         return (
             <TableHead>
