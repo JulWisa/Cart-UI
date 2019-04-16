@@ -11,6 +11,7 @@ class Cart extends Component {
             <div>
                 <Typography variant="h5" className="headline">Корзина</Typography>
                 <CartTable cart={this.props.cart}
+                           products={this.props.products}
                            onRemoveProduct={product => this.props.onRemoveProduct(product)}
                            onRemoveProductType={product => this.props.onRemoveProductType(product)}/>
                 <Button component={Link} to="/" className="cartButton">

@@ -22,7 +22,8 @@ const mapDispatchToProps = function (dispatch) {
 
 const mapStateToProps = function (store) {
     return {
-        cart: store.cartState
+        cart: store.cartState,
+        products: store.productsState
     };
 };
 

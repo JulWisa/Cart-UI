@@ -34,22 +34,15 @@ export const productsReducer = (state = initialState, action) => {
             return newState;
         }
         case actionType.REMOVE_PRODUCT_TYPE_FROM_CART:{
-            let product = Object.assign({}, action.product);
             let newState = [...state];
-            let oldProd = newState.find(prod => prod.id === product.id);
-            let i = newState.indexOf(oldProd);
-            product.count = newState[i].count + product.count;
-            newState[i] = product;
+            let product = newState.find(product => product.id === action.product.id);
+            product.count += action.product.count;
             return newState;
         }
         case actionType.CLEAR_CART:{
             let newState = [...state];
-            action.cart.forEach(product => {
-                let oldProd = newState.find(prod => prod.id === product.id);
-                let i = newState.indexOf(oldProd);
-                product.count = newState[i].count + product.count;
-                newState[i] = product;
-            });
+            action.cart.forEach(cartElement =>
+                newState.find(product => cartElement.id === product.id).count += cartElement.count);
             return newState;
         }
         default: return state;

@@ -5,25 +5,24 @@ const initialState = [];
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionType.ADD_PRODUCT_TO_CART: {
-            if(action.product.count === 0) return state;
+            let id = action.product.id;
+            let count = action.product.count;
 
-            let product = Object.assign({}, action.product);
+            if(count === 0) return state;
+
             if (state.length === 0) {
-                product.count = 1;
-                return [product];
+                return [{id, count: 1}];
             }
 
             let newState = [...state];
-            let old = state.find(prod => prod.id === product.id);
-            if(old){
-                product.count = old.count + 1;
-                let i = newState.indexOf(old);
-                newState[i] = product;
+            let oldElement = newState.find(el => el.id === id);
+            if (!!oldElement){
+                oldElement.count++;
                 return newState;
             }
 
-            product.count = 1;
-            return [...state, product];
+            newState.push({id, count: 1});
+            return newState;
         }
 
         case actionType.CLEAR_CART :
