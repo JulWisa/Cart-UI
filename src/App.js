@@ -4,7 +4,6 @@ import {Provider} from "react-redux";
 
 import ProductsContainer from "./components/containers/products/ProductsContainer";
 import CartContainer from "./components/containers/cart/CartContainer";
-import './App.css';
 
 import Layout from "./components/layouts/Layout";
 import {createStore} from "redux";

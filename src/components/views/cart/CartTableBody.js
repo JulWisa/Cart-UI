@@ -23,7 +23,7 @@ class CartTableBody extends Component {
                     key={product.id}/>);
         return (
             <TableRow>
-                <TableCell id="emptyCart" colSpan={5}>
+                <TableCell className="emptyCart" colSpan={5}>
                     Корзина пуста
                 </TableCell>
             </TableRow>);

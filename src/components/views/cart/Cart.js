@@ -9,11 +9,11 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                <Typography variant="h5" id="headline">Корзина</Typography>
+                <Typography variant="h5" className="headline">Корзина</Typography>
                 <CartTable cart={this.props.cart}
                            onRemoveProduct={product => this.props.onRemoveProduct(product)}
                            onRemoveProductType={product => this.props.onRemoveProductType(product)}/>
-                <Button component={Link} to="/" id="productsBtn">
+                <Button component={Link} to="/" className="cartButton">
                     Перейти в список товаров
                 </Button>
                 <Button onClick={() => this.props.onClearCart(this.props.cart)}>
