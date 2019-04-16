@@ -1,4 +1,4 @@
-import actionType from "../constants/action-types";
+import actionType from "../constants/actionTypes";
 
 const initialState = [
     {id: 0, name: "Яблоко", price: 86, count: 0},
