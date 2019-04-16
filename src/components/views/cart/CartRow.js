@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import Button from "@material-ui/core/Button";
+import RemoveIcon from "../../../../node_modules/@material-ui/icons/Remove";
 
 import {RUB_FORMATTER} from "../../../common/numberFormatters";
-import RemoveProductButton from "./RemoveProductButton";
-import RemoveProductTypeButton from "./RemoveProductTypeButton";
 
 class CartRow extends Component {
     render() {
@@ -16,10 +16,14 @@ class CartRow extends Component {
                 <TableCell>{price}</TableCell>
                 <TableCell>{product.count}</TableCell>
                 <TableCell>
-                    <RemoveProductButton onRemoveProduct={this.props.onRemoveProduct}/>
+                    <Button onClick={this.props.onRemoveProduct}>
+                        <RemoveIcon/>
+                    </Button>
                 </TableCell>
                 <TableCell>
-                    <RemoveProductTypeButton onRemoveProductType={this.props.onRemoveProductType}/>
+                    <Button onClick={this.props.onRemoveProductType}>
+                        Удалить все
+                    </Button>
                 </TableCell>
             </TableRow>);
     }

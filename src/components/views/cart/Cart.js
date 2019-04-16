@@ -4,7 +4,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 import CartTable from "./CartTable";
-import ClearCartButton from "./ClearCartButton";
 
 class Cart extends Component {
     render() {
@@ -17,7 +16,9 @@ class Cart extends Component {
                 <Button component={Link} to="/" id="productsBtn">
                     Перейти в список товаров
                 </Button>
-                <ClearCartButton onClearCart={() => this.props.onClearCart(this.props.cart)}/>
+                <Button onClick={() => this.props.onClearCart(this.props.cart)}>
+                    Очистить корзину
+                </Button>
             </div>
         );
     }
