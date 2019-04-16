@@ -1,10 +1,10 @@
-import {ADD_PRODUCT_TO_CART, CLEAR_CART, REMOVE_PRODUCT_FROM_CART, REMOVE_PRODUCT_TYPE_FROM_CART} from "../actions/action-types";
+import actionType from "../constants/action-types";
 
 const initialState = [];
 
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_PRODUCT_TO_CART: {
+        case actionType.ADD_PRODUCT_TO_CART: {
             if(action.product.count === 0) return state;
 
             let product = Object.assign({}, action.product);
@@ -26,10 +26,10 @@ export const cartReducer = (state = initialState, action) => {
             return [...state, product];
         }
 
-        case CLEAR_CART :
+        case actionType.CLEAR_CART :
             return [];
 
-        case REMOVE_PRODUCT_FROM_CART: {
+        case actionType.REMOVE_PRODUCT_FROM_CART: {
             let newState = [...state];
             let product = newState.find(product => product.id === action.product.id);
             if (product.count === 1)
@@ -38,7 +38,7 @@ export const cartReducer = (state = initialState, action) => {
             return newState;
         }
 
-        case REMOVE_PRODUCT_TYPE_FROM_CART: {
+        case actionType.REMOVE_PRODUCT_TYPE_FROM_CART: {
             return [...state].filter(product => product.id !== action.product.id)
         }
 

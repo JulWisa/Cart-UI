@@ -1,7 +1,7 @@
 import React from 'react';
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
-import {RUB_FORMATTER} from "../../../consants/numberFormatters";
+import {RUB_FORMATTER} from "../../../common/numberFormatters";
 import RemoveProductButton from "./RemoveProductButton";
 import RemoveProductTypeButton from "./RemoveProductTypeButton";
 

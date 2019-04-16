@@ -1,7 +1,7 @@
 import React from 'react';
 import TableCell from "../../../../node_modules/@material-ui/core/TableCell/TableCell";
 import Typography from "../../../../node_modules/@material-ui/core/Typography/Typography";
-import {RUB_FORMATTER} from "../../../consants/numberFormatters";
+import {RUB_FORMATTER} from "../../../common/numberFormatters";
 import TableRow from "../../../../node_modules/@material-ui/core/TableRow/TableRow";
 
 class TotalRow extends React.Component {
