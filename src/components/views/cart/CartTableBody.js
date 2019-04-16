@@ -25,7 +25,7 @@ class CartTableBody extends Component {
                 let cartProduct = Object.assign(productData, cartElement);
                 return <CartRow
                     product={cartProduct}
-                    onRemoveProduct={() => this.props.onRemoveProduct(cartElement)}
+                    onRemoveProduct={() => this.props.onRemoveProduct(cartElement.id)}
                     onRemoveProductType={() => this.props.onRemoveProductType(cartElement)}
                     key={cartElement.id}/>
             });

@@ -12,8 +12,8 @@ class Cart extends Component {
                 <Typography variant="h5" className="headline">Корзина</Typography>
                 <CartTable cart={this.props.cart}
                            products={this.props.products}
-                           onRemoveProduct={product => this.props.onRemoveProduct(product)}
-                           onRemoveProductType={product => this.props.onRemoveProductType(product)}/>
+                           onRemoveProduct={id => this.props.onRemoveProduct(id)}
+                           onRemoveProductType={id => this.props.onRemoveProductType(id)}/>
                 <Button component={Link} to="/" className="cartButton">
                     Перейти в список товаров
                 </Button>

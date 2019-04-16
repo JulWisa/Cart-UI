@@ -11,8 +11,8 @@ class CartTable extends Component {
                 <CartTableHead/>
                 <CartTableBody cart={this.props.cart}
                                products={this.props.products}
-                               onRemoveProduct={product => this.props.onRemoveProduct(product)}
-                               onRemoveProductType={product => this.props.onRemoveProductType(product)}/>
+                               onRemoveProduct={id => this.props.onRemoveProduct(id)}
+                               onRemoveProductType={id => this.props.onRemoveProductType(id)}/>
             </Table>
         );
     }

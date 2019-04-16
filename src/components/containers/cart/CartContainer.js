@@ -2,9 +2,10 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 
 import Cart from "../../views/cart/Cart";
-import * as action from "../../../actions/actions";
+import * as cartAction from "../../../actions/cartActions";
+import * as productsAction from "../../../actions/productsActions";
 
-class CartContainer extends Component{
+class CartContainer extends Component {
     render() {
         return (
             <Cart {...this.props}/>
@@ -14,9 +15,18 @@ class CartContainer extends Component{
 
 const mapDispatchToProps = function (dispatch) {
     return {
-        onClearCart: cart => dispatch(action.clearCart(cart)),
-        onRemoveProduct: product => dispatch(action.removeProduct(product)),
-        onRemoveProductType: product => dispatch(action.removeProductType(product))
+        onClearCart: cart => {
+            dispatch(cartAction.clearCart());
+            dispatch(productsAction.addAllProductsFromCart(cart))
+        },
+        onRemoveProduct: id => {
+            dispatch(cartAction.removeCartElement(id));
+            dispatch(productsAction.increaseProductCount({id}))
+        },
+        onRemoveProductType: cartElement => {
+            dispatch(cartAction.removeCartElementType(cartElement.id));
+            dispatch(productsAction.increaseProductCount(cartElement))
+        }
     };
 };
 
