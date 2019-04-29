@@ -3,7 +3,9 @@ UI for cart
 
 [React version](https://github.com/JulWisa/cart-ui) is in master branch
 
-[React-redux version](https://github.com/JulWisa/cart-ui/tree/redux) is in redux branch 
+[React-redux version](https://github.com/JulWisa/cart-ui/tree/redux) is in redux branch
+
+[React with typescript version](https://github.com/JulWisa/cart-ui/tree/typescript) is in typescript branch  
 
 ## Functions
 * Add product to cart

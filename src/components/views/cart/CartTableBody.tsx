@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
-import TableBody from "@material-ui/core/TableBody";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
+import {TableBody, TableRow, TableCell} from '@material-ui/core';
 
-import TotalRow from "./TotalRow";
-import CartRow from "./CartRow";
+// import {Product} from '@models/product';
+// import {CartElement} from '@models/cartElement';
+import TotalRow from './TotalRow';
+import CartRow from './CartRow';
+import {Product} from '../../../models/product';
+import {CartElement} from '../../../models/cartElement';
 
-class CartTableBody extends Component {
-    getProductData(id) {
+interface CartTableBodyProps {
+    products: Product[],
+    cart: CartElement[],
+    onRemoveCartRow: (id: number) => void,
+    onRemoveCartProduct: (id: number) => void
+}
+
+class CartTableBody extends Component<CartTableBodyProps> {
+    getProductData(id: number) {
         let result = this.props.products.find(product => product.id === id);
+        if (!result) return {name: "", price: 0};
         return {name: result.name, price: result.price}
     }
 

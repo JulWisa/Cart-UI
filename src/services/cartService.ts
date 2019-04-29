@@ -1,4 +1,7 @@
-export function getCartWithProducts(cart, id, count){
+// import {CartElement} from '@models/cartElement';
+import {CartElement} from "../models/cartElement";
+
+export function getCartWithProducts(cart: CartElement[], id: number, count?: number): CartElement[]{
     if (count === undefined) count = 1;
     let oldElement = cart.find(cartElement => cartElement.id === id);
     if (oldElement){
@@ -11,18 +14,19 @@ export function getCartWithProducts(cart, id, count){
     return [...cart, {id, count}];
 }
 
-export function getCartWithoutProduct(cart, id) {
+export function getCartWithoutProduct(cart: CartElement[], id: number): CartElement[]{
     let result = [...cart];
     let product = cart.find(product => product.id === id);
+    if (!product) return cart;
     if (product.count === 1){
-        result.remove(product);
-        return result;
+        return result.filter(prod => prod !== product);
     }
     product.count--;
     return result;
 }
 
-export function getCartWithoutProductType(cart, id) {
+export function getCartWithoutProductType(cart: CartElement[], id: number): CartElement[] {
     let result = [...cart];
     return result.filter(product => product.id !== id);
 }
+
