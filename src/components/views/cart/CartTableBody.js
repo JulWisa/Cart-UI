@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -6,27 +6,21 @@ import TableCell from "@material-ui/core/TableCell";
 import TotalRow from "./TotalRow";
 import CartRow from "./CartRow";
 
-class CartTableBody extends Component {
-    constructor(props) {
-        super(props);
-
-        this.getBody = this.getBody.bind(this);
-    }
-
-    getProductData(id) {
-        let result = this.props.products.find(product => product.id === id);
+function CartTableBody(props) {
+    function getProductData(id) {
+        let result = props.products.find(product => product.id === id);
         return {name: result.name, price: result.price}
     }
 
-    getBody() {
-        if (this.props.cart.length > 0)
-            return this.props.cart.map(cartElement => {
-                let productData = this.getProductData(cartElement.id);
+    function getBody() {
+        if (props.cart.length > 0)
+            return props.cart.map(cartElement => {
+                let productData = getProductData(cartElement.id);
                 let cartProduct = Object.assign(productData, cartElement);
                 return <CartRow
                     product={cartProduct}
-                    onRemoveProduct={() => this.props.onRemoveProduct(cartElement.id)}
-                    onRemoveProductType={() => this.props.onRemoveProductType(cartElement)}
+                    onRemoveProduct={() => props.onRemoveProduct(cartElement.id)}
+                    onRemoveProductType={() => props.onRemoveProductType(cartElement)}
                     key={cartElement.id}/>
             });
         return (
@@ -37,14 +31,12 @@ class CartTableBody extends Component {
             </TableRow>);
     }
 
-    render() {
-        return (
-            <TableBody>
-                {this.getBody()}
-                <TotalRow cart={this.props.cart} products={this.props.products}/>
-            </TableBody>
-        );
-    }
+    return (
+        <TableBody>
+            {getBody()}
+            <TotalRow cart={props.cart} products={props.products}/>
+        </TableBody>
+    );
 }
 
 export default CartTableBody;

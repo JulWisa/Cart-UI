@@ -1,16 +1,14 @@
-import React, {Component} from "react";
+import React from "react";
 import {connect} from "react-redux";
 
 import Cart from "../../views/cart/Cart";
 import * as cartAction from "../../../actions/cartActions";
 import * as productsAction from "../../../actions/productsActions";
 
-class CartContainer extends Component {
-    render() {
-        return (
-            <Cart {...this.props}/>
-        );
-    }
+function CartContainer(props) {
+    return (
+        <Cart {...props}/>
+    );
 }
 
 const mapDispatchToProps = function (dispatch) {

@@ -1,16 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
 
 import * as productAction from "../../../actions/productsActions";
 import * as cartAction from "../../../actions/cartActions";
 import Products from "../../views/products/Products";
 
-class ProductsContainer extends Component {
-    render() {
-        return (
-            <Products {...this.props}/>
-        );
-    }
+function ProductsContainer(props) {
+    return (
+        <Products {...props}/>
+    );
 }
 
 const mapStateToProps = function (store) {

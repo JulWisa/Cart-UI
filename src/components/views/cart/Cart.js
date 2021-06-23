@@ -5,24 +5,22 @@ import Typography from "@material-ui/core/Typography";
 
 import CartTable from "./CartTable";
 
-class Cart extends Component {
-    render() {
-        return (
-            <div>
-                <Typography variant="h5" className="headline">Корзина</Typography>
-                <CartTable cart={this.props.cart}
-                           products={this.props.products}
-                           onRemoveProduct={id => this.props.onRemoveProduct(id)}
-                           onRemoveProductType={id => this.props.onRemoveProductType(id)}/>
-                <Button component={Link} to="/" className="cartButton">
-                    Перейти в список товаров
-                </Button>
-                <Button onClick={() => this.props.onClearCart(this.props.cart)}>
-                    Очистить корзину
-                </Button>
-            </div>
-        );
-    }
+function Cart(props) {
+    return (
+        <div>
+            <Typography variant="h5" className="headline">Корзина</Typography>
+            <CartTable cart={props.cart}
+                       products={props.products}
+                       onRemoveProduct={id => props.onRemoveProduct(id)}
+                       onRemoveProductType={id => props.onRemoveProductType(id)}/>
+            <Button component={Link} to="/" className="cartButton">
+                Перейти в список товаров
+            </Button>
+            <Button onClick={() => props.onClearCart(props.cart)}>
+                Очистить корзину
+            </Button>
+        </div>
+    );
 }
 
 export default Cart;
